@@ -38,8 +38,7 @@
 }
 
 .create-ticket{
-  /* background-color: #EA4C89; */
-  background-color: black;
+  background-color: #EA4C89;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
@@ -70,7 +69,7 @@
 }
 
 .button-edit{
-  background-color: black;
+  background-color: #52b2bf;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;

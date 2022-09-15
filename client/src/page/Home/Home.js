@@ -79,19 +79,19 @@ const columns = [
         console.log("customBodyRender");
         if (value === "pending")
           return (
-            <p style={{ color: "blue" }}> {value} </p>
+            <p style={{margin: "5px", color: "blue" }}> {value} </p>
           );
         else if (value === "accepted")
           return (
-            <p style={{ color: "green" }}> {value} </p>
+            <p style={{ margin: "5px", color: "green" }}> {value} </p>
           );
         else if (value === "resolved")
           return (
-            <p style={{ color: "orange" }}> {value} </p>
+            <p style={{ margin: "5px" ,color: "orange" }}> {value} </p>
           );
         else if (value === "rejected")
           return (
-            <p style={{ color: "red" }}> {value} </p>
+            <p style={{ margin: "5px", color: "red" }}> {value} </p>
           );
             
       },
@@ -166,7 +166,7 @@ function Home() {
   return (
     <div className="App container">
       <div className="header">
-        <h1>Ticket</h1>
+        <h4>Ticket Management</h4>
         <button type="button" className="create-ticket" onClick={()=> window.location.href="/create"}>
           create ticket
         </button>
@@ -178,7 +178,13 @@ function Home() {
           options={options}
         />
 
+          
+
       </div>
+      <footer style={{marginTop:20,textAlign:"right"}}>
+  
+  <a style={{textAlign:"center",color:"gray"}}>Power by Nontaphat Noijai</a>
+</footer>
     </div>
   );
 }

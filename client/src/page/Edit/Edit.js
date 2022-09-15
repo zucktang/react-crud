@@ -4,6 +4,7 @@ import axios from "axios";
 import { url } from "../../constant/Api";
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import './Edit.css'
 
 function Edit() {
   const moment = require("moment-timezone");
@@ -58,12 +59,12 @@ function Edit() {
 
   return (
     <div>
-      <h1>Ticket Detail</h1>
-      <form>
-        <div className="row-content">
-          <span>Title:</span>
+      <div className="card-edit">
+        <h3 style={{marginBottom:"20px",fontWeight:"bold"}}> Update Ticket </h3>
+        <div className="column-content">
+          <span className="span-g">Title:</span>
           <input
-            className="form-control"
+            className="title"
             type="text"
             name="title"
             value={data.title}
@@ -71,10 +72,10 @@ function Edit() {
           />
         </div>
 
-        <div className="row-content">
-          <span>Description:</span>
+        <div className="column-content">
+          <span className="span-g">Description:</span>
           <textarea
-            className="form-control"
+            className="description"
             type="text"
             name="description"
             value={data.description}
@@ -82,10 +83,10 @@ function Edit() {
           />
         </div>
 
-        <div className="row-content">
-          <span>Contact Information:</span>
+        <div className="column-content">
+          <span className="span-g">Contact Information:</span>
           <textarea
-            className="form-control"
+            className="contact-information"
             type="text"
             name="contact_information"
             value={data.contact_information}
@@ -94,8 +95,9 @@ function Edit() {
         </div>
 
         <div className="row-content">
-          <span>Status:</span>
+          <span className="span-g">Status:</span>
           <select
+            className="status"
             value={data.status}
             name="status"
             onChange={(e) => HandleOnChange(e)}
@@ -106,40 +108,49 @@ function Edit() {
           </select>
         </div>
 
-        <div className="row-content">
-          <span>Created_at:</span>
+       
+        <div className="column-content">
+            
+        <span className="span-g">Created_at:</span>
           <input
-            className="form-control"
+            className="created-at"
             type="datetime"
             name="created_at"
+            disabled
             value={dateformat(data.created_at)}
-            readOnly
+            
           />
-        </div>
 
-        <div className="row-content">
-          <span>Updated_at:</span>
+          <span className="span-g">Updated_at:</span>
           <input
-            className="form-control"
+            className="updated-at"
             type="datetime"
             name="updated_at"
             value={dateformat(data.updated_at)}
-            readOnly
+            disabled
           />
         </div>
 
-        <div>
-          <button type="submit" onClick={() => HandleSubmit()}>
-            submit
+        <div className="content-btn">
+          
+          <button
+            className="cancel"
+            type="button"
+            onClick={() => (window.location.href = "/")}
+          >
+            Cancel
           </button>
-        </div>
 
-        <div>
-          <button type="button" onClick={() => (window.location.href = "/")}>
-            cancel
+          <button
+            className="submit"
+            type="submit"
+            onClick={() => HandleSubmit()}
+          >
+            Update
           </button>
+
         </div>
-      </form>
+        </div>
     </div>
   );
 }

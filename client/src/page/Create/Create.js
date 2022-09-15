@@ -4,12 +4,12 @@ import axios from "axios";
 import { url } from "../../constant/Api";
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import "./Create.css";
 
 function Create() {
-  const moment = require("moment-timezone");
   const { id } = useParams();
   const [data, setData] = useState([]);
-  const statusChoice = ["pending", "accepted", "resolved", "rejected"];
+
   const HandleOnChange = (event, name) => {
     setData({ ...data, [event.target.name]: event.target.value });
     console.log(event.target.name);
@@ -31,68 +31,69 @@ function Create() {
       .catch(function (error) {
         console.log(error);
       });
-      
   };
   console.log(data);
 
-  const dateformat = (date) => {
-    return moment(date).tz("Asia/Bangkok").format("DD/MM/yyyy HH:mm");
-  };
   if (!data) return <p>loading</p>;
 
   return (
     <div>
-      <h1>Ticket Detail</h1>
-      <form>
-        <div className="row-content">
-          <span>Title:</span>
+      <div className="card-create">
+        <h3 style={{marginBottom:"20px",fontWeight:"bold"}}> Create Ticket </h3>
+        <div className="column-content">
+          <span className="span-g">Title:</span>
           <input
-            className="form-control"
+            className="title"
             type="text"
             name="title"
             value={data.title}
-            placeholder = "Please Enter Title"
+            placeholder="Please Enter Title"
             onChange={(e) => HandleOnChange(e)}
           />
         </div>
 
-        <div className="row-content">
-          <span>Description:</span>
+        <div className="column-content">
+          <span className="span-g">Description:</span>
           <textarea
-            className="form-control"
+            className="description"
             type="text"
             name="description"
             value={data.description}
-            placeholder = "Please Enter Description"
+            placeholder="Please Enter Description"
             onChange={(e) => HandleOnChange(e)}
           />
         </div>
 
-        <div className="row-content">
-          <span>Contact Information:</span>
+        <div className="column-content">
+          <span className="span-g">Contact Information:</span>
           <textarea
-            className="form-control"
+            className="contact-information"
             type="text"
             name="contact_information"
             value={data.contact_information}
-            placeholder = "Please Enter Contact Information"
+            placeholder="Please Enter Contact Information"
             onChange={(e) => HandleOnChange(e)}
           />
         </div>
 
+        <div className="content-btn">
+        <button
+            className="cancel"
+            type="button"
+            onClick={() => (window.location.href = "/")}
+          >
+            Cancel
+          </button>
 
-        <div>
-          <button type="submit" onClick={() => HandleSubmit()}>
-            submit
+          <button
+            className="submit"
+            type="submit"
+            onClick={() => HandleSubmit()}
+          >
+            Create
           </button>
         </div>
-
-        <div>
-          <button type="button" onClick={() => (window.location.href = "/")}>
-            cancel
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }
