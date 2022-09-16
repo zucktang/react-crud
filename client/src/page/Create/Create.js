@@ -39,7 +39,10 @@ function Create() {
   return (
     <div>
       <div className="card-create">
-        <h3 style={{marginBottom:"20px",fontWeight:"bold"}}> Create Ticket </h3>
+        <h3 style={{ marginBottom: "20px", fontWeight: "bold" }}>
+          {" "}
+          Create Ticket{" "}
+        </h3>
         <div className="column-content">
           <span className="span-g">Title:</span>
           <input
@@ -77,7 +80,7 @@ function Create() {
         </div>
 
         <div className="content-btn">
-        <button
+          <button
             className="cancel"
             type="button"
             onClick={() => (window.location.href = "/")}

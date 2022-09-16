@@ -4,7 +4,7 @@ import axios from "axios";
 import { url } from "../../constant/Api";
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import './Edit.css'
+import "./Edit.css";
 
 function Edit() {
   const moment = require("moment-timezone");
@@ -53,14 +53,18 @@ function Edit() {
   }, []);
 
   const dateformat = (date) => {
-    return moment(date).tz("Asia/Bangkok").format("DD/MM/yyyy HH:mm");
+    console.log(date);
+    console.log(moment(date).tz("Asia/Bangkok").format("DD/MM/yyyy HH:mm"));
   };
   if (!data) return <p>loading</p>;
 
   return (
     <div>
       <div className="card-edit">
-        <h3 style={{marginBottom:"20px",fontWeight:"bold"}}> Update Ticket </h3>
+        <h3 style={{ marginBottom: "20px", fontWeight: "bold" }}>
+          {" "}
+          Update Ticket{" "}
+        </h3>
         <div className="column-content">
           <span className="span-g">Title:</span>
           <input
@@ -108,17 +112,14 @@ function Edit() {
           </select>
         </div>
 
-       
         <div className="column-content">
-            
-        <span className="span-g">Created_at:</span>
+          <span className="span-g">Created_at:</span>
           <input
             className="created-at"
             type="datetime"
             name="created_at"
             disabled
             value={dateformat(data.created_at)}
-            
           />
 
           <span className="span-g">Updated_at:</span>
@@ -132,7 +133,6 @@ function Edit() {
         </div>
 
         <div className="content-btn">
-          
           <button
             className="cancel"
             type="button"
@@ -148,9 +148,8 @@ function Edit() {
           >
             Update
           </button>
-
         </div>
-        </div>
+      </div>
     </div>
   );
 }
